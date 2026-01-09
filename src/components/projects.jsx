@@ -104,65 +104,65 @@ export function Projects() {
                 initial={{
                   opacity: 0,
                   y: 30,
-                  filter:
-                    "grayscale(100%) sepia(30%) saturate(130%) hue-rotate(-10deg) brightness(1.05)",
                 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{
-                  y: -10,
-                  rotate: index === 1 ? 0 : index === 0 ? -2 : 2,
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
                   filter:
                     "grayscale(0%) sepia(15%) saturate(120%) hue-rotate(-5deg)",
                 }}
-                className="border-2  border-foreground rounded-lg overflow-hidden"
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{
+                  y: -12,
+                  scale: 1.02,
+                  filter:
+                    "grayscale(0%) sepia(20%) saturate(130%) hue-rotate(-5deg) brightness(1.05)",
+                  transition: { duration: 0.3, ease: "easeOut" },
+                }}
+                className="rounded-lg overflow-hidden group cursor-pointer shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-300"
+                onClick={() => setSelectedProject(project)}
               >
-                <div className="aspect-[4/3] overflow-hidden">
+                <div className="relative aspect-[4/3] overflow-hidden">
                   <motion.img
-                    whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.3 }}
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover  "
+                    className="w-full h-full object-cover"
                   />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-1">{project.title}</h3>
-                  <p className="text-sm mb-4">{project.subtitle}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs px-3 py-1 border border-foreground rounded-full"
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                    <div className="flex gap-2 w-full">
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedProject(project);
+                        }}
+                        className="flex-1 px-3 py-2 bg-foreground text-background rounded text-xs font-medium"
                       >
-                        {tag}
-                      </span>
-                    ))}
+                        Details
+                      </motion.button>
+                      <motion.a
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="flex-1 px-3 py-2 border-2 border-foreground bg-background rounded text-xs font-medium text-center flex items-center justify-center gap-1.5"
+                      >
+                        <AiOutlineLink className="text-base" />
+                        Live
+                      </motion.a>
+                    </div>
                   </div>
-
-                  {/* Action Buttons */}
-                  <div className="flex gap-3">
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={() => setSelectedProject(project)}
-                      className="flex-1 px-4 py-2 bg-foreground text-background rounded-lg text-sm font-medium"
-                    >
-                      View Details
-                    </motion.button>
-                    <motion.a
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      href={project.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 px-4 py-2 border-2 border-foreground rounded-lg text-sm font-medium text-center flex items-center justify-center gap-2"
-                    >
-                      <AiOutlineLink className="text-lg" />
-                      Live Site
-                    </motion.a>
-                  </div>
+                </div>
+                <div className="p-6 space-y-2">
+                  <h3 className="text-2xl font-bold">{project.title}</h3>
+                  <p className="text-sm opacity-70 leading-relaxed">
+                    {project.subtitle}
+                  </p>
                 </div>
               </motion.div>
             ))}
