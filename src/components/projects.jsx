@@ -101,15 +101,22 @@ export function Projects() {
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{
+                  opacity: 0,
+                  y: 30,
+                  filter:
+                    "grayscale(100%) sepia(30%) saturate(130%) hue-rotate(-10deg) brightness(1.05)",
+                }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{
                   y: -10,
                   rotate: index === 1 ? 0 : index === 0 ? -2 : 2,
+                  filter:
+                    "grayscale(0%) sepia(15%) saturate(120%) hue-rotate(-5deg)",
                 }}
-                className="border-2 border-foreground rounded-lg overflow-hidden"
+                className="border-2  border-foreground rounded-lg overflow-hidden"
               >
                 <div className="aspect-[4/3] overflow-hidden">
                   <motion.img
@@ -117,7 +124,7 @@ export function Projects() {
                     transition={{ duration: 0.3 }}
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover  "
                   />
                 </div>
                 <div className="p-6">
