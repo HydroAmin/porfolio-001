@@ -24,7 +24,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="min-h-screen flex items-center justify-center pt-16 px-4 relative overflow-hidden"
+      className=" flex items-center justify-center py-10 pt-32 px-4 relative overflow-hidden"
     >
       {/* Background Text */}
       <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
