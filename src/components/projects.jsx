@@ -78,7 +78,7 @@ export function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-screen flex items-center px-4 py-20 relative overflow-hidden"
+      className="  flex items-center px-4 py-20 relative overflow-hidden"
     >
       {/* Background Text */}
       <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
