@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { FiArrowDown } from "react-icons/fi"
+import { motion } from "framer-motion";
+import { FiArrowDown } from "react-icons/fi";
 
 const steps = [
   { number: "01", label: "IDEA" },
@@ -10,11 +10,14 @@ const steps = [
   { number: "04", label: "DEVELOP" },
   { number: "05", label: "TEXT" },
   { number: "06", label: "LAUNCH" },
-]
+];
 
 export function HowIWork() {
   return (
-    <section id="how-i-work" className="min-h-screen flex items-center px-4 py-20 relative overflow-hidden">
+    <section
+      id="how-i-work"
+      className="  flex items-center px-4 py-10 relative overflow-hidden"
+    >
       {/* Background Text */}
       <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
         <span className="text-[12rem] font-bold leading-none">WORK</span>
@@ -28,7 +31,9 @@ export function HowIWork() {
           transition={{ duration: 0.6 }}
         >
           <p className="text-sm mb-2">How I Work</p>
-          <h2 className="text-6xl md:text-7xl font-bold mb-16">My Working Process</h2>
+          <h2 className="text-2xl md:text-4xl font-bold mb-16">
+            My Working Process
+          </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-6 gap-6 mb-16">
             {steps.map((step, index) => (
@@ -69,5 +74,6 @@ export function HowIWork() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
+
