@@ -65,7 +65,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen flex items-center px-4 py-20 relative overflow-hidden"
+      className=" flex items-center px-4 py-20 relative overflow-hidden"
     >
       {/* Toast Notification */}
       {showToast && (
@@ -237,7 +237,7 @@ export function Contact() {
                 {[1, 2].map((i) => (
                   <div
                     key={i}
-                    className="absolute inset-0 rounded-full border-2 border-foreground"
+                    className="absolute inset-0 rounded-full border-2 border-foreground hover:border-yellow-300"
                     style={{
                       width: "100%",
                       height: "100%",
