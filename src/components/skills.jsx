@@ -25,7 +25,7 @@ const languageSkills = [
 
 export function Skills() {
   return (
-    <section id="skills" className="min-h-screen px-4 py-20">
+    <section id="skills" className="  px-4 py-10">
       <div className="max-w-6xl mx-auto w-full space-y-20">
         {/* Design Skills */}
         <motion.div
